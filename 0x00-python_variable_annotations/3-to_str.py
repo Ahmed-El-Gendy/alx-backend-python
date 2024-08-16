@@ -5,5 +5,5 @@ Function to make float to str
 
 
 def to_str(n: float) -> str:
-    """ Get the str """
+    """Get the str"""
     return str(n)
