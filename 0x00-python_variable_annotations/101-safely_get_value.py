@@ -2,14 +2,12 @@
 """
     Type var
 """
-from typing import TypeVar, Dict, Optional
-
+from typing import TypeVar, Mapping, Union, Any
 T = TypeVar('T')
 
 
-def safely_get_value(
-    dct: Dict[str, T], key: str, default: Optional[T] = None
-) -> Optional[T]:
+def safely_get_value(dct: Mapping, key: Any, default: Union[T, None] = None
+                     ) -> Union[Any, T]:
     """Type var"""
     if key in dct:
         return dct[key]
