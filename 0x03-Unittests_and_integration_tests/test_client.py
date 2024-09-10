@@ -43,7 +43,7 @@ class TestGithubOrgClient(unittest.TestCase):
     @patch("client.GithubOrgClient._public_repos_url",
            new_callable=PropertyMock)
     def test_public_repos(
-        self, mock_public_repos_url: PropertyMock, mock_get_json: MagicMock
+        self, mock_public_repos_url: PropertyMock, mock_get_json: Mock
     ) -> None:
         """Test GithubOrgClient.public_repos method."""
         mock_public_repos_url.return_value = (
@@ -93,7 +93,7 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         def get_payload(url):
             if url in route_payload:
                 return Mock(**{"json.return_value": route_payload[url]})
-            return HTTPError
+            raise HTTPError
 
         cls.get_patcher = patch("requests.get", side_effect=get_payload)
         cls.get_patcher.start()
