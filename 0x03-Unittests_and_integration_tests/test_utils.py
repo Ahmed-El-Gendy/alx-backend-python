@@ -5,7 +5,6 @@ from parameterized import parameterized
 from typing import Dict, Tuple, Union
 from utils import access_nested_map, get_json, memoize
 from unittest.mock import patch, Mock
-import requests
 
 
 class TestAccessNestedMap(unittest.TestCase):
