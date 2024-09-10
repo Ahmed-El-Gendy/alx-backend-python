@@ -87,10 +87,10 @@ class TestMemoize(unittest.TestCase):
                 return self.a_method()
 
         with patch.object(
-            TestClass,
-            'a_method',
-            return_value=42,
-        ) as memo_fxn:
+                TestClass,
+                'a_method',
+                return_value=42,
+                ) as memo_fxn:
             test = TestClass()
             self.assertEqual(test.a_property, 42)
             self.assertEqual(test.a_property, 42)
