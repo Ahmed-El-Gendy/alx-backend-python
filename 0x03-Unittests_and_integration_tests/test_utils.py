@@ -78,7 +78,6 @@ class TestMemoize(unittest.TestCase):
         Test that the memoize function memoizes correctly
         """
         class TestClass:
-
             def a_method(self):
                 return 42
 
@@ -89,7 +88,7 @@ class TestMemoize(unittest.TestCase):
         with patch.object(
                 TestClass,
                 'a_method',
-                return_value=42,
+                return_value=lambda: 42,
                 ) as memo_fxn:
             test = TestClass()
             self.assertEqual(test.a_property(), 42)
