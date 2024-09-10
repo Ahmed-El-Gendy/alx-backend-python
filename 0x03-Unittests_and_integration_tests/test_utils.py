@@ -92,6 +92,6 @@ class TestMemoize(unittest.TestCase):
                 return_value=lambda: 42,
                 ) as memo_fxn:
             test = TestClass()
-            self.assertEqual(test.a_property, 42)
-            self.assertEqual(test.a_property, 42)
+            self.assertEqual(test.a_property(), 42)
+            self.assertEqual(test.a_property(), 42)
             memo_fxn.assert_called_once()
